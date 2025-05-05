@@ -30,6 +30,17 @@ describe("Teste da criação, registro e login", () => {
     cy.get('.btn-primary').click()
     cy.get('h1.ng-binding').should('contain.text', infos[0])
   })
+
+  /* Exercício */
+  it("Teste login com falha", () => {
+    let infos = createUser()
+
+    loginUser(infos)
+    cy.get('h1.ng-binding').should('contain.text', infos[0])
+    cy.get('.ng-binding > a').click()
+    loginUser(infos)
+    cy.get('.ng-binding').should('have.text', 'Username or password is incorrect')
+  })
 })
 
 function createUser() {
@@ -50,4 +61,11 @@ function createUser() {
   cy.get('.ng-binding').should('have.text', 'Registration successful')
 
   return infos
+}
+
+function loginUser(infos) {
+  cy.visit("https://globalsqa.com/angularJs-protractor/registration-login-example/#/login")
+  cy.get('#username').type(infos[0])
+  cy.get('#password').type(infos[1])
+  cy.get('.btn-primary').click()
 }
