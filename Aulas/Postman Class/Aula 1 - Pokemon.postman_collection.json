@@ -1,0 +1,76 @@
+{
+	"info": {
+		"_postman_id": "b7d910f2-510e-426c-a83b-e855db666e8a",
+		"name": "Aula 1 - Pokemon",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25428306"
+	},
+	"item": [
+		{
+			"name": "Localiza pokemon com sucesso",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://pokeapi.co/api/v2/pokemon/bulbasaur",
+					"protocol": "https",
+					"host": [
+						"pokeapi",
+						"co"
+					],
+					"path": [
+						"api",
+						"v2",
+						"pokemon",
+						"bulbasaur"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Não Localiza Pokemon (Não Existe)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://pokeapi.co/api/v2/pokemon/huahua",
+					"protocol": "https",
+					"host": [
+						"pokeapi",
+						"co"
+					],
+					"path": [
+						"api",
+						"v2",
+						"pokemon",
+						"huahua"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Endpoint Falho Localiza Pokemon",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://pokeapi.co/api/v2/pokemo/bulbasaur",
+					"protocol": "https",
+					"host": [
+						"pokeapi",
+						"co"
+					],
+					"path": [
+						"api",
+						"v2",
+						"pokemo",
+						"bulbasaur"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
