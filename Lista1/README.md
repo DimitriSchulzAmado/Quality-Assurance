@@ -5,6 +5,11 @@
 
 Teste de UI com Cypress
 
+## Equipe / Responsabilidades:
+
+Dimitri Schulz Amado / Suite Orientador
+Felipe Gabriel Ribeiro / Suite Alunos
+
 ## Como usar
 
 Esta seção fornece instruções abrangentes para configurar e executar as suites de teste.
