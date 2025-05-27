@@ -9,6 +9,8 @@ Teste de UI com Cypress
 
 Dimitri Schulz Amado / Suite Orientador  
 Felipe Gabriel Ribeiro / Suite Alunos
+Antonio Alexandre Barbosa da Silva / Suite Projetos
+Wellington Henrique Dias de Souza / Suite Projetos
 
 ## Como usar
 
