@@ -1,0 +1,229 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 7,
+    "passes": 5,
+    "pending": 0,
+    "failures": 2,
+    "start": "2025-05-28T17:31:44.850Z",
+    "end": "2025-05-28T17:32:11.137Z",
+    "duration": 26287,
+    "testsRegistered": 7,
+    "passPercent": 71.42857142857143,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "8e92283b-f066-4961-876b-03f5e9cee94f",
+      "title": "",
+      "fullFile": "cypress\\e2e\\advisor.cy.js",
+      "file": "cypress\\e2e\\advisor.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "212e41a5-810b-4c74-b039-c21f40dcd23b",
+          "title": "Suite de testes dos Orientadores",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "1 Teste de cadastro de orientador com sucesso",
+              "fullTitle": "Suite de testes dos Orientadores 1 Teste de cadastro de orientador com sucesso",
+              "timedOut": null,
+              "duration": 3262,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "createUser();",
+              "err": {},
+              "uuid": "9ea2fb8d-7109-4f57-8662-fd936e3bd28f",
+              "parentUUID": "212e41a5-810b-4c74-b039-c21f40dcd23b",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "2 Teste limpa formulário após cadastro com sucesso",
+              "fullTitle": "Suite de testes dos Orientadores 2 Teste limpa formulário após cadastro com sucesso",
+              "timedOut": null,
+              "duration": 6292,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "createUser();\ncy.get(':nth-child(1) > div > input').should('have.value', '');\ncy.get(':nth-child(2) > div > input').should('have.value', '');\ncy.get(':nth-child(3) > div > input').should('have.value', '');\ncy.get(':nth-child(4) > div > button').should('be.visible');",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: expected '<input.sc-gHjVMF.hEXuhk>' to have value '', but the value was 'teste'",
+                "estack": "AssertionError: Timed out retrying after 4000ms: expected '<input.sc-gHjVMF.hEXuhk>' to have value '', but the value was 'teste'\n    at Context.eval (webpack:///./cypress/e2e/advisor.cy.js:20:46)",
+                "diff": "- 'teste'\n"
+              },
+              "uuid": "8fced1fe-c550-4974-a460-ad226602a0e1",
+              "parentUUID": "212e41a5-810b-4c74-b039-c21f40dcd23b",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "3 Teste cadastro de email ja cadastrado com falha",
+              "fullTitle": "Suite de testes dos Orientadores 3 Teste cadastro de email ja cadastrado com falha",
+              "timedOut": null,
+              "duration": 7112,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "const email = generateEmails();\ncy.get(':nth-child(1) > div > input').type('teste');\ncy.get(':nth-child(2) > div > input').type(email[0]);\ncy.get(':nth-child(3) > div > input').type('teste');\ncy.get(':nth-child(4) > div > button').click();\ncy.get('.Toastify__toast-body').should('contain', 'Usuário criado com sucesso!');\ncy.get(':nth-child(1) > div > input').type('teste');\ncy.get(':nth-child(2) > div > input').type(email[0]);\ncy.get(':nth-child(3) > div > input').type('teste');\ncy.get(':nth-child(4) > div > button').click();\ncy.get('.Toastify__toast-body').should('contain', 'Falha ao criar usuário.');",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: expected '[ <div.Toastify__toast-body>, 1 more... ]' to contain 'Falha ao criar usuário.'",
+                "estack": "AssertionError: Timed out retrying after 4000ms: expected '[ <div.Toastify__toast-body>, 1 more... ]' to contain 'Falha ao criar usuário.'\n    at Context.eval (webpack:///./cypress/e2e/advisor.cy.js:40:40)",
+                "diff": null
+              },
+              "uuid": "5dd68f33-038d-4345-9f83-6843e305703b",
+              "parentUUID": "212e41a5-810b-4c74-b039-c21f40dcd23b",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "4 Teste cadastro orientador sem senha com falha",
+              "fullTitle": "Suite de testes dos Orientadores 4 Teste cadastro orientador sem senha com falha",
+              "timedOut": null,
+              "duration": 1922,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "let email = generateEmails();\ncy.get(':nth-child(1) > div > input').type('teste');\ncy.get(':nth-child(2) > div > input').type(email[0]);\ncy.get(':nth-child(3) > div > input').should('be.empty');\ncy.get(':nth-child(4) > div > button').click();\ncy.get(':nth-child(3) > div > input').then($input => {\n  expect($input[0].validationMessage).to.eq('Please fill out this field.');\n});",
+              "err": {},
+              "uuid": "16484711-37cf-4ae8-975c-101e3261062e",
+              "parentUUID": "212e41a5-810b-4c74-b039-c21f40dcd23b",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "5 Teste cadastro orientador com email inválido (sem @xxx.com) com falha",
+              "fullTitle": "Suite de testes dos Orientadores 5 Teste cadastro orientador com email inválido (sem @xxx.com) com falha",
+              "timedOut": null,
+              "duration": 2014,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get(':nth-child(1) > div > input').type('teste');\ncy.get(':nth-child(2) > div > input').type('teste');\ncy.get(':nth-child(3) > div > input').type('teste');\ncy.get(':nth-child(4) > div > button').click();\ncy.get('.Toastify__toast-body').should('contain', 'Por favor, insira um endereço de email válido.');",
+              "err": {},
+              "uuid": "f4ae7723-0944-42f0-a282-4de7d926c5d8",
+              "parentUUID": "212e41a5-810b-4c74-b039-c21f40dcd23b",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "6 Teste cadastro orientador sem nome com falha",
+              "fullTitle": "Suite de testes dos Orientadores 6 Teste cadastro orientador sem nome com falha",
+              "timedOut": null,
+              "duration": 2083,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "let emails = generateEmails();\ncy.get(':nth-child(2) > div > input').type(emails[0]);\ncy.get(':nth-child(3) > div > input').type('teste');\ncy.get(':nth-child(4) > div > button').click();\ncy.get(':nth-child(1) > div > input').then($input => {\n  expect($input[0].validationMessage).to.eq('Please fill out this field.');\n});",
+              "err": {},
+              "uuid": "e7ee6234-deeb-4adf-9f18-3a124ef678cd",
+              "parentUUID": "212e41a5-810b-4c74-b039-c21f40dcd23b",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "7 Teste cadastro orientador sem email com falha",
+              "fullTitle": "Suite de testes dos Orientadores 7 Teste cadastro orientador sem email com falha",
+              "timedOut": null,
+              "duration": 1947,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get(':nth-child(1) > div > input').type('teste');\ncy.get(':nth-child(3) > div > input').type('teste');\ncy.get(':nth-child(4) > div > button').click();\ncy.get(':nth-child(2) > div > input').then($input => {\n  expect($input[0].validationMessage).to.eq('Please fill out this field.');\n});",
+              "err": {},
+              "uuid": "772da023-9432-41c6-bba8-d200be7c6ea1",
+              "parentUUID": "212e41a5-810b-4c74-b039-c21f40dcd23b",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "9ea2fb8d-7109-4f57-8662-fd936e3bd28f",
+            "16484711-37cf-4ae8-975c-101e3261062e",
+            "f4ae7723-0944-42f0-a282-4de7d926c5d8",
+            "e7ee6234-deeb-4adf-9f18-3a124ef678cd",
+            "772da023-9432-41c6-bba8-d200be7c6ea1"
+          ],
+          "failures": [
+            "8fced1fe-c550-4974-a460-ad226602a0e1",
+            "5dd68f33-038d-4345-9f83-6843e305703b"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 24632,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "charts": true,
+        "overwrite": false,
+        "html": true,
+        "json": true,
+        "reportDir": "cypress/reports/mochawesome-report"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

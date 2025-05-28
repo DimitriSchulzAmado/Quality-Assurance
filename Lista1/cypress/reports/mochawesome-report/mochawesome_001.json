@@ -1,0 +1,220 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 7,
+    "passes": 7,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-05-28T17:32:13.096Z",
+    "end": "2025-05-28T17:32:31.836Z",
+    "duration": 18740,
+    "testsRegistered": 7,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "218afde3-38fe-48f7-bb3b-ecab8e0cadb6",
+      "title": "",
+      "fullFile": "cypress\\e2e\\lista1Projetos.cy.js",
+      "file": "cypress\\e2e\\lista1Projetos.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "08e1945b-ca54-4e4b-bb4b-e42f3c9097a0",
+          "title": "Projetos",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "1- Criar projeto com um aluno e um orientador",
+              "fullTitle": "Projetos 1- Criar projeto com um aluno e um orientador",
+              "timedOut": null,
+              "duration": 4532,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('.sc-jdHILj').click();\ncy.get('[href=\"/adm/add-projeto/cadastro\"]').click();\ncy.get('.sc-fYrVWQ > .sc-hsaIUA').type(nome);\ncy.get(':nth-child(2) > :nth-child(2) > .sc-hsaIUA').type(\"189054Aluno@inatel.br\");\ncy.get(':nth-child(6) > :nth-child(2) > .sc-hsaIUA').type(\"18906Orientador@inatel.br\");\ncy.get(':nth-child(1) > .sc-bZTyFN > .sc-hlqirL').select(\"Com pendência\");\ncy.get(':nth-child(2) > .sc-bZTyFN > .sc-hlqirL').select(\"Outro\");\ncy.get('.sc-eGgGjL > :nth-child(1)').click();\ncy.get('.Toastify__toast-body > :nth-child(2)').should(\"have.text\", \"Equipe criada com sucesso!\");",
+              "err": {},
+              "uuid": "d83e0378-576d-4a91-9ee7-a39bba744f89",
+              "parentUUID": "08e1945b-ca54-4e4b-bb4b-e42f3c9097a0",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "2- Nega criar um projeto sem integrante",
+              "fullTitle": "Projetos 2- Nega criar um projeto sem integrante",
+              "timedOut": null,
+              "duration": 2602,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('.sc-jdHILj').click();\ncy.get('[href=\"/adm/add-projeto/cadastro\"]').click();\ncy.get('.sc-fYrVWQ > .sc-hsaIUA').type(nome);\ncy.get(':nth-child(6) > :nth-child(2) > .sc-hsaIUA').type(\"18906Orientador@inatel.br\");\ncy.get(':nth-child(1) > .sc-bZTyFN > .sc-hlqirL').select(\"Com pendência\");\ncy.get(':nth-child(2) > .sc-bZTyFN > .sc-hlqirL').select(\"Outro\");\ncy.get('.sc-eGgGjL > :nth-child(1)').click();\ncy.get('.Toastify__toast-body > :nth-child(2)').should(\"have.text\", \"Por favor, adicione pelo menos um integrante.\");",
+              "err": {},
+              "uuid": "9edf2d2f-c51a-4dbb-a644-e8462dfe27ff",
+              "parentUUID": "08e1945b-ca54-4e4b-bb4b-e42f3c9097a0",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "3- Nega criar um projeto com um usuário não existe",
+              "fullTitle": "Projetos 3- Nega criar um projeto com um usuário não existe",
+              "timedOut": null,
+              "duration": 2922,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('.sc-jdHILj').click();\ncy.get('[href=\"/adm/add-projeto/cadastro\"]').click();\ncy.get('.sc-fYrVWQ > .sc-hsaIUA').type(nome);\ncy.get(':nth-child(2) > :nth-child(2) > .sc-hsaIUA').type(\"2029598Aluno@inatel.br\");\ncy.get(':nth-child(6) > :nth-child(2) > .sc-hsaIUA').type(\"18906Orientador@inatel.br\");\ncy.get(':nth-child(1) > .sc-bZTyFN > .sc-hlqirL').select(\"Com pendência\");\ncy.get(':nth-child(2) > .sc-bZTyFN > .sc-hlqirL').select(\"Outro\");\ncy.get('.sc-eGgGjL > :nth-child(1)').click();\ncy.get('#\\\\31  > .Toastify__toast-body > :nth-child(2)').should(\"have.text\", \"Erro ao buscar o nome do membro. Verifique o email e tente novamente.\");\ncy.get('#\\\\32  > .Toastify__toast-body > :nth-child(2)').should(\"have.text\", \"Erro ao criar equipe: Erro: Aluno não cadastrado: 2029598Aluno@inatel.br\");",
+              "err": {},
+              "uuid": "d23875f9-329a-4a10-899e-0b96d6a90985",
+              "parentUUID": "08e1945b-ca54-4e4b-bb4b-e42f3c9097a0",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "4- Pesquisa o projeto e verifica se existe",
+              "fullTitle": "Projetos 4- Pesquisa o projeto e verifica se existe",
+              "timedOut": null,
+              "duration": 1239,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('.sc-ckdEwu').type(\"Gato robo\");\ncy.get('.sc-dmXWDj').should(\"contain\", \"Gato robo\");",
+              "err": {},
+              "uuid": "52ba3c17-2215-478f-a336-143c56b33994",
+              "parentUUID": "08e1945b-ca54-4e4b-bb4b-e42f3c9097a0",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "5- Ler projeto e verificar detalhes",
+              "fullTitle": "Projetos 5- Ler projeto e verificar detalhes",
+              "timedOut": null,
+              "duration": 1507,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('.sc-ckdEwu').type(nome);\ncy.get('.sc-dmXWDj').should(\"contain\", nome);\ncy.get('.sc-dmXWDj').click();\ncy.get('.sc-hhyKGa > :nth-child(2)').should(\"contain.text\", nome);\ncy.get('.sc-cSxRuM > :nth-child(2) > :nth-child(2)').should(\"contain.text\", \"189054Aluno@inatel.br\");\ncy.get('.sc-cSxRuM > :nth-child(3) > :nth-child(2)').should(\"contain.text\", \"18906Orientador@inatel.br\");",
+              "err": {},
+              "uuid": "8336ff05-5659-4826-952e-f07f8621159d",
+              "parentUUID": "08e1945b-ca54-4e4b-bb4b-e42f3c9097a0",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "6- Atualizar o projeto adicionando um integrante",
+              "fullTitle": "Projetos 6- Atualizar o projeto adicionando um integrante",
+              "timedOut": null,
+              "duration": 2277,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('.sc-ckdEwu').type(nome);\ncy.get('.sc-dmXWDj').should(\"contain\", nome);\ncy.get('.sc-dmXWDj').click();\ncy.get('.sc-cPtzlb > .sc-irLvIq > .sc-csKJxZ').click();\ncy.get('.sc-ppzwM').type(\"20172619Aluno@inatel.br\");\ncy.get('.sc-hiTDLB').click();\ncy.get('.iTLMzn > .sc-csKJxZ').click();\ncy.get('.Toastify__toast-body > :nth-child(2)').should(\"have.text\", \"Projeto atualizado com sucesso!\");",
+              "err": {},
+              "uuid": "cc514f0e-fb95-4e51-b8b6-7179a52fcf6c",
+              "parentUUID": "08e1945b-ca54-4e4b-bb4b-e42f3c9097a0",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "7- Pesquisa o projeto e o deleta",
+              "fullTitle": "Projetos 7- Pesquisa o projeto e o deleta",
+              "timedOut": null,
+              "duration": 2130,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('.sc-ckdEwu').type(nome);\ncy.get('.sc-gjLLEI').click();\ncy.get('.sc-iCKXBC > [viewBox=\"0 0 448 512\"]').click();\ncy.get('.sc-cZpZpK > :nth-child(1)').click();\ncy.get('.sc-ckdEwu').type(nome);\ncy.get('.sc-dmXWDj').should(\"not.contain\", nome);",
+              "err": {},
+              "uuid": "9d79cd0a-f773-4476-a09f-52a658e9b1ce",
+              "parentUUID": "08e1945b-ca54-4e4b-bb4b-e42f3c9097a0",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "d83e0378-576d-4a91-9ee7-a39bba744f89",
+            "9edf2d2f-c51a-4dbb-a644-e8462dfe27ff",
+            "d23875f9-329a-4a10-899e-0b96d6a90985",
+            "52ba3c17-2215-478f-a336-143c56b33994",
+            "8336ff05-5659-4826-952e-f07f8621159d",
+            "cc514f0e-fb95-4e51-b8b6-7179a52fcf6c",
+            "9d79cd0a-f773-4476-a09f-52a658e9b1ce"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 17209,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "charts": true,
+        "overwrite": false,
+        "html": true,
+        "json": true,
+        "reportDir": "cypress/reports/mochawesome-report"
+      },
+      "version": "6.2.0"
+    }
+  }
+}
