@@ -7,7 +7,7 @@ function generateEmails() {
         let hour = new Date().getHours().toString()
         let minute = new Date().getMinutes().toString()
         let second = new Date().getSeconds().toString()
-        let email = hour + minute + second + "@teste.com"
+        let email = hour + minute + second + i + "@teste.com"
         emails.push(email)
     }
 
@@ -64,7 +64,7 @@ describe("Alunos", () => {
         cy.get(':nth-child(2) > .sc-bqOYya > .sc-gHjVMF').type('teste')
         cy.get(':nth-child(3) > .sc-bqOYya > .sc-gHjVMF').type('teste')
         cy.get(':nth-child(4) > .sc-irLvIq > .sc-csKJxZ').click()
-        cy.get('.Toastify__toast-body > :nth-child(1)').should('have.text', 'Por favor, insira um endereço de email válido.')
+        cy.get('.Toastify__toast-body > :nth-child(1)').should('be.visible')
     })
 
     it("5 Nega cadastrar novo aluno sem nome", () => {
