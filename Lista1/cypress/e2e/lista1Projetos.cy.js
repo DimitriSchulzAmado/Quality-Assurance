@@ -72,7 +72,6 @@ describe("Projetos", () => {
         cy.get('.Toastify__toast-body > :nth-child(2)').should("have.text", "Projeto atualizado com sucesso!")
     })
 
-
     it("7- Pesquisa o projeto e o deleta", () => {
         cy.get('.sc-ckdEwu').type(nome)
         cy.get('.sc-gjLLEI').click()
@@ -81,16 +80,13 @@ describe("Projetos", () => {
         cy.get('.sc-ckdEwu').type(nome)
         cy.get('.sc-dmXWDj').should("not.contain", nome);
     })
-
 })
 
 function generateName() {
-
     let hour = new Date().getHours().toString()
     let minute = new Date().getMinutes().toString()
     let second = new Date().getSeconds().toString()
     let name = hour + minute + second + " - Teste"
-
 
     return name
 }
