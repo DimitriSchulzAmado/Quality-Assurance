@@ -9,7 +9,7 @@ describe("Projetos", () => {
         cy.get('.sc-csKJxZ').click()
     })
 
-    let nome = "2029598Projeto - Teste"
+    let nome = generateName()
 
     it("1- Criar projeto com um aluno e um orientador", () => {
         cy.get('.sc-jdHILj').click()
@@ -80,5 +80,13 @@ describe("Projetos", () => {
         cy.get('.sc-ckdEwu').type(nome)
         cy.get('.sc-dmXWDj').should("not.contain", nome);
     })
-
 })
+
+function generateName() {
+    let hour = new Date().getHours().toString()
+    let minute = new Date().getMinutes().toString()
+    let second = new Date().getSeconds().toString()
+    let name = hour + minute + second + " - Teste"
+
+    return name
+}
