@@ -1,0 +1,325 @@
+{
+	"info": {
+		"_postman_id": "4bb6407c-1d8e-49a8-94ae-56f01cf4245e",
+		"name": "Projetos - Testes",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "45105156",
+		"_collection_link": "https://wellington-7091657.postman.co/workspace/Wellington's-Workspace~55ab59f3-d5d5-42c2-8926-e098a6059fee/collection/45105156-4bb6407c-1d8e-49a8-94ae-56f01cf4245e?action=share&source=collection_link&creator=45105156"
+	},
+	"item": [
+		{
+			"name": "Resgatando token",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let response = pm.response.json();\r",
+							"pm.environment.set('Cookie', response.token);\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BaseURL}}get-csrf-token",
+					"host": [
+						"{{BaseURL}}get-csrf-token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Fazendo login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-XSRF-TOKEN",
+						"value": "{{Cookie}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"dimitri@\",\r\n    \"password\": \"123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BaseURL}}login",
+					"host": [
+						"{{BaseURL}}login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Criando projeto",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-XSRF-TOKEN",
+						"value": "{{Cookie}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "titulo ",
+							"value": "152243",
+							"type": "text"
+						},
+						{
+							"key": "orientador_email",
+							"value": "18906Orientador@inatel.br",
+							"type": "text"
+						},
+						{
+							"key": "status",
+							"value": "Com pendência",
+							"type": "text"
+						},
+						{
+							"key": "paralela",
+							"value": "Outro",
+							"type": "text"
+						},
+						{
+							"key": "email_aluno1",
+							"value": "189054Aluno@inatel.br",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{BaseURL}}api/v1/Time/create",
+					"host": [
+						"{{BaseURL}}api"
+					],
+					"path": [
+						"v1",
+						"Time",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Falha ao criar projeto",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 500\", function () {\r",
+							"    pm.response.to.have.status(500);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-XSRF-TOKEN",
+						"value": "{{Cookie}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "titulo ",
+							"value": "152243",
+							"type": "text"
+						},
+						{
+							"key": "orientador_email",
+							"value": "18906Orientador@inatel.br",
+							"type": "text"
+						},
+						{
+							"key": "status",
+							"value": "Com pendência",
+							"type": "text"
+						},
+						{
+							"key": "paralela",
+							"value": "Outro",
+							"type": "text"
+						},
+						{
+							"key": "email_aluno1",
+							"value": "alunofalha1523@inatel.br",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{BaseURL}}api/v1/Time/create",
+					"host": [
+						"{{BaseURL}}api"
+					],
+					"path": [
+						"v1",
+						"Time",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Resgatando o número do projeto",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let responseData = pm.response.json();\r",
+							"\r",
+							"let time = responseData.find(item => item.titulo === \"152243\");\r",
+							"\r",
+							"if (time) {\r",
+							"  pm.environment.set(\"numTime\", time.numeroGrupo);\r",
+							"  \r",
+							"  pm.test(\"Time encontrado\", () => {\r",
+							"    pm.expect(time.numeroGrupo).to.be.a('number');\r",
+							"  });\r",
+							"} else {\r",
+							"  pm.test(\"Time NÃO encontrado\", () => pm.expect.fail());\r",
+							"}"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-XSRF-TOKEN",
+						"value": "{{Cookie}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "{{BaseURL}}api/v1/Time/all",
+					"host": [
+						"{{BaseURL}}api"
+					],
+					"path": [
+						"v1",
+						"Time",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Deletando projeto",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "X-XSRF-TOKEN",
+						"value": "{{Cookie}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "numgrupo",
+							"value": "{{numTime}}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{BaseURL}}api/v1/Time/delete",
+					"host": [
+						"{{BaseURL}}api"
+					],
+					"path": [
+						"v1",
+						"Time",
+						"delete"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
