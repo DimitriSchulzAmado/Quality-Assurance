@@ -1,0 +1,147 @@
+{
+    "info": {
+        "name": "Time API Test Suite",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+        "_postman_id": "time-api-test-suite"
+    },
+    "item": [
+        {
+            "name": "Criar um Time",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"numerogrupo\": \"100\",\n    \"tema\": \"Projeto IA\",\n    \"status\": \"ativo\"\n}"
+                },
+                "url": {
+                    "raw": "{{base_url}}/Time/create",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "Time",
+                        "create"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Buscar Todos os Times",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "{{base_url}}/Time/all",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "Time",
+                        "all"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Buscar Time Espec\u00edfico",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "{{base_url}}/Time/100",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "Time",
+                        "100"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Atualizar Dados do Time",
+            "request": {
+                "method": "PUT",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"numerogrupo\": \"100\",\n    \"tema\": \"Projeto IA Avan\\u00e7ado\",\n    \"status\": \"ativo\"\n}"
+                },
+                "url": {
+                    "raw": "{{base_url}}/Time/update",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "Time",
+                        "update"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Atualizar Status do Time",
+            "request": {
+                "method": "PUT",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"numerogrupo\": \"100\",\n    \"status\": \"inativo\"\n}"
+                },
+                "url": {
+                    "raw": "{{base_url}}/Time/UpdateStatus",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "Time",
+                        "UpdateStatus"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "Deletar um Time",
+            "request": {
+                "method": "DELETE",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"numerogrupo\": \"100\"\n}"
+                },
+                "url": {
+                    "raw": "{{base_url}}/Time/delete",
+                    "host": [
+                        "{{base_url}}"
+                    ],
+                    "path": [
+                        "Time",
+                        "delete"
+                    ]
+                }
+            }
+        }
+    ]
+}
