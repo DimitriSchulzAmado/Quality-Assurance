@@ -8,6 +8,7 @@ Dimitri Schulz Amado / Suite Orientador
 Felipe Gabriel Ribeiro / Suite Alunos
 Antonio Alexandre Barbosa da Silva / Suite Projetos
 Wellington Henrique Dias de Souza / Suite Projetos
+Fabio augusto gandra cruvinel / Suite Times
 
 ### Pré-requisitos
 
