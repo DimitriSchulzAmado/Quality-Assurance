@@ -1,10 +1,9 @@
 {
 	"info": {
-		"_postman_id": "4bb6407c-1d8e-49a8-94ae-56f01cf4245e",
+		"_postman_id": "02d67aac-9861-4561-9d00-570faac91087",
 		"name": "Projetos - Testes",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "45105156",
-		"_collection_link": "https://wellington-7091657.postman.co/workspace/Wellington's-Workspace~55ab59f3-d5d5-42c2-8926-e098a6059fee/collection/45105156-4bb6407c-1d8e-49a8-94ae-56f01cf4245e?action=share&source=collection_link&creator=45105156"
+		"_exporter_id": "46044873"
 	},
 	"item": [
 		{
@@ -267,6 +266,186 @@
 						"v1",
 						"Time",
 						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Atualizando projeto",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "X-XSRF-TOKEN",
+						"value": "{{Cookie}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "numgrupo ",
+							"value": "{{numTime}}",
+							"type": "text"
+						},
+						{
+							"key": "titulo",
+							"value": "152243",
+							"type": "text"
+						},
+						{
+							"key": "orientador_email ",
+							"value": "18906Orientador@inatel.br",
+							"type": "text"
+						},
+						{
+							"key": "status ",
+							"value": "Pronto",
+							"type": "text"
+						},
+						{
+							"key": "paralela ",
+							"value": "paralela",
+							"type": "text"
+						},
+						{
+							"key": "email_aluno1 ",
+							"value": "userprojeto211615@gmail.com",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{BaseURL}}api/v1/Time/update",
+					"host": [
+						"{{BaseURL}}api"
+					],
+					"path": [
+						"v1",
+						"Time",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Falha ao atualizar projeto",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 500\", function () {\r",
+							"    pm.response.to.have.status(500);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "X-XSRF-TOKEN",
+						"value": "{{Cookie}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "numgrupo ",
+							"value": "{{numTime}}",
+							"type": "text"
+						},
+						{
+							"key": "titulo",
+							"value": "152243",
+							"type": "text"
+						},
+						{
+							"key": "orientador_email",
+							"value": "18906Orientador@inatel.br",
+							"type": "text"
+						},
+						{
+							"key": "status",
+							"value": "Pronto",
+							"type": "text"
+						},
+						{
+							"key": "paralela",
+							"value": "paralela",
+							"type": "text"
+						},
+						{
+							"key": "email_aluno1",
+							"value": "alunofalha1523@inatel.br",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{BaseURL}}api/v1/Time/update",
+					"host": [
+						"{{BaseURL}}api"
+					],
+					"path": [
+						"v1",
+						"Time",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Informações do projeto",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "numerogrupo ",
+							"value": "{{numTime}}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{BaseURL}}api/v1/Time/{{numTime}}",
+					"host": [
+						"{{BaseURL}}api"
+					],
+					"path": [
+						"v1",
+						"Time",
+						"{{numTime}}"
 					]
 				}
 			},
