@@ -4,9 +4,12 @@ Teste de API com Postman
 
 ## Equipe / Responsabilidades:
 
-Dimitri Schulz Amado / Suite Orientador  
+Dimitri Schulz Amado / Suite Orientador
+
 Felipe Gabriel Ribeiro / Suite Alunos
+
 Antonio Alexandre Barbosa da Silva / Suite Projetos
+
 Wellington Henrique Dias de Souza / Suite Projetos
 
 ### Pré-requisitos
